@@ -1,1 +1,9 @@
-
+---
+ - name: creating user with the home directory
+   hosts: servers
+   become: yes
+   tasks:
+     - name: create a user with the home-directory
+       user:
+          name: devops
+          create_home: yes
