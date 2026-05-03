@@ -1,0 +1,10 @@
+---
+  - name: create a file
+    hosts: servers
+    become: yes
+    tasks:
+      - name: creating a file with text
+        copy:
+            dest: /tmp/hello.txt
+            content: |
+              hello, friends! Welcome to devops...
