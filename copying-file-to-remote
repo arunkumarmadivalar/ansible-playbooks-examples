@@ -1,0 +1,18 @@
+---
+  - name: copy local file to remote
+    hosts: servers
+    become: yes
+    tasks:
+      - name: copying a file to remote
+        copy:
+           src: Index.html
+           dest: /var/www/html
+
+      - name: Restart Nginx
+        service:
+            name: nginx
+            state: reloaded
+      - name: Enable Nginx
+        service:
+            name: nginx
+            enabled: true
