@@ -1,0 +1,19 @@
+---
+ - name: install packages using variables
+   hosts: servers
+   become: yes
+   vars:
+     packages:
+       - git
+       - curl
+       - vim
+       - htop
+       - tree
+
+   tasks:
+     - name: install packages
+       apt:
+         name: "{{ item }}"
+         state: present
+         update_cache: yes
+       loop: "{{packages}}"
